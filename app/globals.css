@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Design System ─── */
+@theme {
+  --color-ink: #2c3e50;
+  --color-terracotta: #C07A58;
+  --color-forest: #2F4F2F;
+  --color-parchment: #F4F1EA;
+  --color-parchment-dark: #E6E2D6;
+  --color-paper-white: #FDFBF7;
+  --color-charcoal: #1a1a1a;
+
+  --font-serif: "Cormorant Garamond", serif;
+  --font-hand: "La Belle Aurore", cursive;
+  --font-sans: "Montserrat", sans-serif;
+
+  --shadow-polaroid: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                     0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                     0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-floating: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ─── Base ─── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "lnum" 1, "onum" 1;
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: var(--color-terracotta);
+  color: white;
+}
+
+/* ─── Paper Textures ─── */
+.bg-paper-texture {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjRjRGMUVBIi8+CjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiIG9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+");
+}
+
+.bg-notebook-lines {
+  background-image: repeating-linear-gradient(transparent, transparent 31px, #ACC8D4 31px, #ACC8D4 32px);
+}
+
+/* ─── Film Grain Overlay ─── */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ─── Polaroid Frame ─── */
+.polaroid-frame {
+  background-color: #fff;
+  padding: 12px 12px 40px 12px;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+.polaroid-frame:hover {
+  transform: scale(1.02) rotate(0deg) !important;
+  z-index: 10;
+}
+
+/* ─── Washi Tape ─── */
+.washi-tape {
+  position: absolute;
+  width: 80px;
+  height: 25px;
+  background-color: rgba(220, 220, 220, 0.6);
+  transform: rotate(-35deg);
+  top: -10px;
+  left: 50%;
+  margin-left: -40px;
+  backdrop-filter: blur(1px);
+  z-index: 20;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Film Strip Holes ─── */
+.film-strip-holes {
+  background-image: radial-gradient(circle, #fff 40%, transparent 45%);
+  background-size: 20px 20px;
+  background-repeat: repeat-x;
+  height: 20px;
+  width: 100%;
+  opacity: 0.8;
+}
+
+/* ─── Rough Paper Edge ─── */
+.rough-edge {
+  clip-path: polygon(1% 1%, 99% 2%, 98% 98%, 2% 99%);
+}
+
+/* ─── Light Leak ─── */
+.light-leak {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 200, 150, 0.3) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(200, 150, 255, 0.2) 100%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ─── Recipe Cutout ─── */
+.recipe-cutout {
+  clip-path: polygon(5% 5%, 100% 0%, 95% 95%, 0% 100%);
+  border-radius: 2px;
+}
+
+/* ─── Hand-Drawn Circle (for FAB) ─── */
+.hand-drawn-circle {
+  border-radius: 50% 45% 55% 40% / 55% 55% 45% 45%;
+  border: 2px solid var(--color-ink);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* ─── Wax Seal ─── */
+.wax-seal {
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: radial-gradient(circle at 30% 30%, #e65c5c, #900);
+  position: relative;
+}
+.wax-seal::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+/* ─── Grid Background (for The Dwelling) ─── */
+.grid-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Scrollbar Hide ─── */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Spinning Text Animation ─── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* ─── Album Spin Animation ─── */
+@keyframes spin-medium {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-album {
+  animation: spin-medium 4s linear infinite;
 }
