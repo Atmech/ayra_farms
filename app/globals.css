@@ -179,3 +179,54 @@ body {
 .animate-spin-album {
   animation: spin-medium 4s linear infinite;
 }
+
+/* ─── Scroll Map: Element Base ─── */
+.scroll-element {
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* ─── Scroll Map: Interactive Button ─── */
+.scroll-element-btn {
+  transition: filter 0.4s ease;
+}
+.scroll-element-btn:hover {
+  filter: drop-shadow(0 0 18px rgba(192, 122, 88, 0.35));
+}
+
+/* ─── Scroll Map: Ping Hint ─── */
+@keyframes element-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.animate-element-ping {
+  animation: element-ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ─── Scroll Map: Label ─── */
+.element-label {
+  transition: all 0.3s ease;
+  border-bottom: 1.5px dashed transparent;
+}
+.element-label-active {
+  border-bottom-color: rgba(192, 122, 88, 0.4);
+}
+
+/* ─── Scroll Map: Gentle Float ─── */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-gentle-float {
+  animation: gentle-float 3s ease-in-out infinite;
+}

@@ -41,29 +41,31 @@ export default function ScrollReveal({
         break;
     }
 
-    gsap.fromTo(
-      element,
-      {
-        autoAlpha: 0,
-        x,
-        y,
-      },
-      {
-        autoAlpha: 1,
-        x: 0,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: element,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+    const context = gsap.context(() => {
+      gsap.fromTo(
+        element,
+        {
+          autoAlpha: 0,
+          x,
+          y,
         },
-      }
-    );
+        {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, element);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      context.revert();
     };
   }, [direction]);
 
