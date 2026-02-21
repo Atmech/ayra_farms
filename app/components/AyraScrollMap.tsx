@@ -32,77 +32,77 @@ interface MapElement {
 
 const MAP_ELEMENTS: MapElement[] = [
   {
-    id: "house",
-    src: "/elements/house.png",
-    alt: "The farmhouse at Ayra Farms",
-    label: "The Dwelling",
-    targetSection: "#stay",
-    rotation: -3,
-    delay: 0.05,
-    zIndex: 12,
-    desktop: { top: "10%", left: "50%", width: 240, height: 150 },
-    mobile:  { top: "6%",  left: "50%", width: 150, height: 95 },
-  },
-  {
     id: "berries",
     src: "/elements/berries.png",
     alt: "Fresh jamun berries from the farm",
-    label: "The Farm",
+    label: "THE FARM",
     targetSection: "#about",
-    rotation: 5,
+    rotation: -4,
     delay: 0.15,
     zIndex: 11,
-    desktop: { top: "30%", left: "8%",  width: 140, height: 160 },
-    mobile:  { top: "24%", left: "12%", width: 90,  height: 105 },
-  },
-  {
-    id: "bananas",
-    src: "/elements/bananas.png",
-    alt: "Home-grown bananas",
-    label: "The Kitchen",
-    targetSection: "#dining",
-    rotation: -6,
-    delay: 0.2,
-    zIndex: 11,
-    desktop: { top: "26%", left: "82%", width: 135, height: 160 },
-    mobile:  { top: "22%", left: "82%", width: 85,  height: 100 },
+    desktop: { top: "18%", left: "32%", width: 140, height: 140 },
+    mobile:  { top: "12%", left: "28%", width: 90, height: 90 },
   },
   {
     id: "cow",
     src: "/elements/cow.png",
     alt: "Farm cow resting peacefully",
-    label: "Farm Life",
+    label: "FARM LIFE",
     targetSection: "#about",
+    rotation: 5,
+    delay: 0.2,
+    zIndex: 10,
+    desktop: { top: "17%", left: "68%", width: 180, height: 120 },
+    mobile:  { top: "14%", left: "70%", width: 110, height: 75 },
+  },
+  {
+    id: "bananas",
+    src: "/elements/bananas.png",
+    alt: "Home-grown bananas",
+    label: "THE KITCHEN",
+    targetSection: "#dining",
+    rotation: -6,
+    delay: 0.25,
+    zIndex: 12,
+    desktop: { top: "35%", left: "18%", width: 140, height: 140 },
+    mobile:  { top: "28%", left: "12%", width: 90, height: 90 },
+  },
+  {
+    id: "house",
+    src: "/elements/house.png",
+    alt: "The farmhouse at Ayra Farms",
+    label: "THE DWELLING",
+    targetSection: "#stay",
     rotation: 2,
     delay: 0.3,
-    zIndex: 10,
-    desktop: { top: "76%", left: "10%", width: 210, height: 140 },
-    mobile:  { top: "78%", left: "14%", width: 130, height: 88 },
+    zIndex: 13,
+    desktop: { top: "39%", left: "50%", width: 220, height: 130 },
+    mobile:  { top: "32%", left: "50%", width: 140, height: 85 },
   },
   {
     id: "dog",
     src: "/elements/dog.png",
     alt: "The farm dog",
-    label: "Our Residents",
+    label: "OUR RESIDENTS",
     targetSection: "#experience",
-    rotation: -4,
+    rotation: 6,
     delay: 0.35,
-    zIndex: 10,
-    desktop: { top: "70%", left: "80%", width: 150, height: 190 },
-    mobile:  { top: "72%", left: "80%", width: 95,  height: 120 },
+    zIndex: 12,
+    desktop: { top: "37%", left: "82%", width: 130, height: 160 },
+    mobile:  { top: "30%", left: "88%", width: 85, height: 105 },
   },
 ];
 
 /* ── Ayra & hair constants (desktop / mobile) ── */
 const LAYOUT = {
   desktop: {
-    ayra:        { top: "58%", width: 210, height: 260 },
-    hair:        { startTop: "43%", finalTop: "32%", width: 230, height: 95 },
-    burstOrigin: { top: "40%", left: "50%" },
+    ayra:        { top: "80%",width: 320, height: 405 },
+    hair:        { startTop: "51.5%", finalTop: "1%", width: 250, height: 110 },
+    burstOrigin: { top: "35%", left: "50%" },
   },
   mobile: {
-    ayra:        { top: "52%", width: 140, height: 175 },
-    hair:        { startTop: "38%", finalTop: "28%", width: 155, height: 65 },
+    ayra:        { top: "75%", width: 340, height: 430 },
+    hair:        { startTop: "50.5%", finalTop: "0.5%", width: 220, height: 110 },
     burstOrigin: { top: "35%", left: "50%" },
   },
 };
@@ -448,27 +448,16 @@ export default function AyraScrollMap() {
                 {/* Label */}
                 <div
                   ref={setLabelRef(el.id)}
-                  className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none ${
-                    parseFloat(l.top) < 40 ? "top-full mt-1 md:mt-2" : "bottom-full mb-1 md:mb-2"
-                  }`}
+                  className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none z-20"
                   style={{ opacity: 0 }}
                 >
-                  <div
-                    className={`absolute left-1/2 -translate-x-1/2 w-[1px] h-2 md:h-3 border-l border-dashed border-ink/25 ${
-                      parseFloat(l.top) < 40 ? "-top-2 md:-top-3" : "-bottom-2 md:-bottom-3"
-                    }`}
-                  />
                   <span
-                    className={`element-label font-hand text-xs md:text-base text-ink/75 px-1.5 md:px-2 py-0.5 bg-parchment/80 backdrop-blur-sm rounded-sm ${
-                      isSettled ? "element-label-active" : ""
+                    className={`element-label inline-block font-hand font-bold tracking-widest text-[9px] md:text-xs text-ink/80 px-3 md:px-4 py-1.5 md:py-2 bg-[#F5F2EB] shadow-sm transform transition-all duration-300 rounded-[2px] ${
+                      isSettled ? "element-label-active shadow-md" : ""
                     }`}
+                    style={{ transform: `rotate(${el.rotation > 0 ? -3 : 2}deg)` }}
                   >
                     {el.label}
-                    {isSettled && (
-                      <span className="inline-block ml-1 text-terracotta text-[10px] md:text-xs">
-                        ↗
-                      </span>
-                    )}
                   </span>
                 </div>
               </div>
