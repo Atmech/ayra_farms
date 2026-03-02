@@ -96,14 +96,14 @@ const MAP_ELEMENTS: MapElement[] = [
 /* ── Ayra & hair constants (desktop / mobile) ── */
 const LAYOUT = {
   desktop: {
-    ayra:        { top: "80%",width: 320, height: 405 },
-    hair:        { startTop: "51.5%", finalTop: "1%", width: 250, height: 110 },
-    burstOrigin: { top: "35%", left: "50%" },
+    ayra:        { top: "80%", width: 320, height: 405 },
+    hair:        { startTop: "75%", finalTop: "25%", width: 320, height: 405, leftOffset: 0, rotate: 0 },
+    burstOrigin: { top: "35%", left: "45%" },
   },
   mobile: {
-    ayra:        { top: "75%", width: 340, height: 430 },
-    hair:        { startTop: "50.5%", finalTop: "0.5%", width: 220, height: 110 },
-    burstOrigin: { top: "35%", left: "50%" },
+    ayra:        { top: "55%", width: 600, height: 600 },
+    hair:        { startTop: "51.80%", finalTop: "10%", width: 600, height: 600, leftOffset: 0, rotate: 0 },
+    burstOrigin: { top: "35%", left: "45%" },
   },
 };
 
@@ -349,7 +349,7 @@ export default function AyraScrollMap() {
           {/* ── Ayra ── */}
           <div
             ref={ayraRef}
-            className="scroll-element absolute z-20"
+            className="scroll-element absolute z-20 pointer-events-none"
             style={{
               top: layout.ayra.top,
               left: "50%",
@@ -372,13 +372,13 @@ export default function AyraScrollMap() {
           {/* ── Hair ── */}
           <div
             ref={hairRef}
-            className="scroll-element absolute z-30"
+            className="scroll-element absolute z-30 pointer-events-none"
             style={{
               top: layout.hair.startTop,
-              left: "50%",
+              left: `calc(50% + ${layout.hair.leftOffset || 0}px)`,
               width: layout.hair.width,
               height: layout.hair.height,
-              transform: "translate(-50%, -50%)",
+              transform: `translate(-50%, -50%) rotate(${layout.hair.rotate || 0}deg)`,
               opacity: 0,
             }}
           >
@@ -386,7 +386,7 @@ export default function AyraScrollMap() {
               src="/elements/ayra-hair.png"
               alt=""
               fill
-              sizes="(max-width: 768px) 155px, 230px"
+              sizes="(max-width: 768px) 340px, 320px"
               className="object-contain drop-shadow-sm"
               priority
               aria-hidden="true"
