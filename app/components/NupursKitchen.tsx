@@ -38,50 +38,72 @@ export default function NupursKitchen() {
             <div className="mt-8 relative group cursor-pointer">
               <div className="overflow-hidden rounded-tl-[50px] rounded-br-[50px] border-4 border-white shadow-lg transform transition-transform group-hover:scale-105">
                 <Image
-                  alt="Fresh spices from the farm"
+                  alt="Nupur cooking over a traditional wood fire"
                   className="w-full h-64 object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw_CCm4uKyri1d2F_PD-jp986qINQIYONShLdj4Bu81nEPEBkXED6xOTc3kRwj7Bm_sroG3gdZAHD0C7u4VtpFMs1n4bAt1VsArJLRXulTSWgi_1YbwAJ4ND9-Nj_PIUZJ4v3Aya9yDv2kijdv9aTcdno40gkQDJu1OLWT89WISe4tj3Duj3eGuBdpookTEJ2_SYjZ5kCpHeUL7q4PKq7Y_OE6NcWTyfVWiLj3LDEIJcozGP4iOagwpqHaeJbUHUUxqrXg8t6D8WKm"
+                  src="/images/kitchen1.png"
                   width={600}
                   height={256}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <span className="absolute -bottom-4 -right-4 bg-terracotta text-white font-hand text-xl px-4 py-1 shadow-md rotate-[-5deg]">
-                Fresh Ground
+                Wood Fire Cooking
               </span>
             </div>
           </div>
 
-          {/* Right — Fish Thali */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="transform translate-y-8 col-span-2">
-              <div className="relative bg-white p-4 shadow-md rotate-1 recipe-cutout">
-                {/* Tape on top */}
-                <div
-                  className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-gray-200/50 backdrop-blur-sm shadow-sm rotate-1 z-20"
-                  style={{
-                    clipPath:
-                      "polygon(0 0, 100% 2px, 98% 100%, 2% 95%)",
-                  }}
-                />
-                <Image
-                  alt="Special Fish Thali"
-                  className="w-full aspect-[4/3] object-cover rounded-sm filter contrast-110"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD46ZIEW30FRHFJVSCNeS28KbjodeGCoM9TVI8o2jGlO6ftqvS--5zDINQHgYdfVp7N7YIQaSN2ALB07DnoVXkMBSd-Bkp-SCMq__wXUHbfiFOabagw1Gkhf-prmdW0vALfyh-g-M2rAAO_vCvD_20v19hJZxbG_4crfpHqfRKS4QBaLNaegB_brJ5k0akoHkcTeeVfR52LO3MGNc5FpfiK23VVVVNYUXGpnxxgkxEeBR10jLZ8IO70xMYvqL-zwBaV4-6nEHEpOHdi"
-                  width={600}
-                  height={450}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="pt-4 pb-2 border-t border-dashed border-gray-300 mt-2">
-                  <div className="flex justify-between items-center">
-                    <p className="font-hand text-lg text-ink/80">
-                      Special Fish Thali
-                    </p>
-                    <span className="text-xs font-serif italic text-gray-400">
-                      Recipe No. 24
-                    </span>
-                  </div>
+          {/* Right — Food Showcase */}
+          <div className="space-y-12">
+            {/* Top Cutout — Special Fish Thali */}
+            <div className="relative bg-white p-4 shadow-md rotate-1 recipe-cutout group">
+              {/* Tape on top */}
+              <div
+                className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-gray-200/50 backdrop-blur-sm shadow-sm rotate-1 z-20"
+                style={{
+                  clipPath: "polygon(0 0, 100% 2px, 98% 100%, 2% 95%)",
+                }}
+              />
+              <Image
+                alt="Special Fish Thali"
+                className="w-full aspect-[4/3] object-cover rounded-sm filter contrast-110 transition-transform group-hover:scale-[1.02]"
+                src="/images/food2.png"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="pt-4 pb-2 border-t border-dashed border-gray-300 mt-2">
+                <div className="flex justify-between items-center">
+                  <p className="font-hand text-lg text-ink/80">
+                    Special Fish Thali
+                  </p>
+                  <span className="text-xs font-serif italic text-gray-400">
+                    Recipe No. 24
+                  </span>
                 </div>
+              </div>
+            </div>
+
+            {/* Bottom Cutout — Morning Harvest Spread */}
+            <div className="relative bg-white p-4 shadow-md -rotate-2 recipe-cutout w-5/6 ml-auto transform translate-y-4 group">
+              {/* Tape on top */}
+              <div
+                className="absolute -top-3 left-1/4 transform -translate-x-1/2 w-24 h-6 bg-gray-300/40 backdrop-blur-sm shadow-sm rotate-[-15deg] z-20"
+                style={{
+                  clipPath: "polygon(2px 0, 100% 5%, 95% 100%, 0 92%)",
+                }}
+              />
+              <Image
+                alt="Morning harvest spread"
+                className="w-full aspect-[4/3] object-cover rounded-sm transition-transform group-hover:scale-[1.02]"
+                src="/images/food1.png"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="pt-3 border-t border-dotted border-gray-300 mt-2">
+                <p className="font-hand text-md text-ink/70">
+                  Morning Harvest Brunch
+                </p>
               </div>
             </div>
           </div>
