@@ -24,7 +24,7 @@ export default function PagesFromFarm() {
                 <Image
                   alt="Laterite brick seating with handwoven rug at Ayra Farms"
                   className="w-full h-full object-cover"
-                  src="/images/laterite-texture.jpeg"
+                  src="/new_images/Screenshot2026-03-05at11.28.06PM.png"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -66,7 +66,7 @@ export default function PagesFromFarm() {
                 <Image
                   alt="Heritage veranda with wooden chairs and hanging plants"
                   className="w-full h-full object-cover"
-                  src="/images/veranda-seating.jpeg"
+                  src="/new_images/our_story.png"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />

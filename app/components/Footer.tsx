@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-parchment-dark pt-20 pb-12 border-t-8 border-double border-white">
@@ -32,34 +34,78 @@ export default function Footer() {
           {/* Center — Index */}
           <div className="md:col-span-3">
             <h5 className="font-sans text-xs font-bold tracking-widest uppercase text-ink/40 mb-6">
-              Index
+              Explore
             </h5>
-            <ul className="space-y-3 font-serif text-xl text-ink">
-              <li>
-                <a
-                  className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline"
-                  href="#about"
-                >
-                  The Journal
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline"
-                  href="#stay"
-                >
-                  Sanctuary
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline"
-                  href="#dining"
-                >
-                  Kitchen
-                </a>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-4">
+              <ul className="space-y-3 font-serif text-xl text-ink">
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/stay"
+                  >
+                    Sanctuary
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/food"
+                  >
+                    Kitchen
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/experiences"
+                  >
+                    Experiences
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/gallery"
+                  >
+                    Gallery
+                  </Link>
+                </li>
+              </ul>
+              <ul className="space-y-3 font-serif text-xl text-ink">
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/booking"
+                  >
+                    Bookings
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/tariff"
+                  >
+                    Tariff
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/about"
+                  >
+                    Our Story
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-terracotta transition-colors hover:italic decoration-1 underline-offset-4 hover:underline block"
+                    href="/directions"
+                  >
+                    Directions
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Right — Coordinates */}

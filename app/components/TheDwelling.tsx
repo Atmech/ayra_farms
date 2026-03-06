@@ -5,7 +5,7 @@ const ROOMS = [
     id: "main-house",
     name: "The Main House",
     description: "High ceilings, chira stones, stories in the walls.",
-    images: ["/images/living-room-swing.jpeg"], // Ready for more photos
+    images: ["/new_images/room-laterite.png", "/new_images/Screenshot2026-03-05at11.27.12PM.png", "/new_images/Screenshot2026-03-05at11.26.37PM.png"], 
     capacity: "Up to 6 guests",
     amenities: ["3 Bedrooms", "Heritage Architecture", "Veranda Swing", "Scent of aged wood"],
     badge: "Heritage",
@@ -14,7 +14,7 @@ const ROOMS = [
     id: "garden-cottage",
     name: "Garden Cottage",
     description: "Hidden amidst the areca nut palms.",
-    images: ["/images/bedroom.jpeg"], // Ready for more photos
+    images: ["/new_images/room-cottage.png", "/new_images/Screenshot2026-03-05at11.27.31PM.png"], 
     capacity: "Up to 2 guests",
     amenities: ["King Bed", "Private Sit-out", "Nature Views", "Ensuite Bathroom"],
   },

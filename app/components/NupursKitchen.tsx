@@ -40,7 +40,7 @@ export default function NupursKitchen() {
                 <Image
                   alt="Nupur cooking over a traditional wood fire"
                   className="w-full h-64 object-cover"
-                  src="/images/kitchen1.png"
+                  src="/new_images/Screenshot2026-03-05at11.28.17PM.png"
                   width={600}
                   height={256}
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -95,7 +95,7 @@ export default function NupursKitchen() {
               <Image
                 alt="Morning harvest spread"
                 className="w-full aspect-[4/3] object-cover rounded-sm transition-transform group-hover:scale-[1.02]"
-                src="/images/food1.png"
+                src="/new_images/Screenshot2026-03-05at11.28.17PM.png"
                 width={600}
                 height={450}
                 sizes="(max-width: 768px) 100vw, 50vw"

@@ -44,7 +44,7 @@ export default function Hero() {
                 <Image
                   alt="Ayra Farms — heritage laterite house with tiled roof and frangipani"
                   className="w-full h-full object-cover grain-overlay"
-                  src="/images/house-exterior.jpeg"
+                  src="/new_images/Screenshot2026-03-05at11.27.20PM.png"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />

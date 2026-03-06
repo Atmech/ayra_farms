@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -36,7 +37,7 @@ const MAP_ELEMENTS: MapElement[] = [
     src: "/elements/berries.png",
     alt: "Fresh jamun berries from the farm",
     label: "THE FARM",
-    targetSection: "#about",
+    targetSection: "/about",
     rotation: -4,
     delay: 0.15,
     zIndex: 11,
@@ -48,7 +49,7 @@ const MAP_ELEMENTS: MapElement[] = [
     src: "/elements/cow.png",
     alt: "Farm cow resting peacefully",
     label: "FARM LIFE",
-    targetSection: "#about",
+    targetSection: "/experiences",
     rotation: 5,
     delay: 0.2,
     zIndex: 10,
@@ -60,7 +61,7 @@ const MAP_ELEMENTS: MapElement[] = [
     src: "/elements/bananas.png",
     alt: "Home-grown bananas",
     label: "THE KITCHEN",
-    targetSection: "#dining",
+    targetSection: "/food",
     rotation: -6,
     delay: 0.25,
     zIndex: 12,
@@ -72,7 +73,7 @@ const MAP_ELEMENTS: MapElement[] = [
     src: "/elements/house.png",
     alt: "The farmhouse at Ayra Farms",
     label: "THE DWELLING",
-    targetSection: "#stay",
+    targetSection: "/stay",
     rotation: 2,
     delay: 0.3,
     zIndex: 13,
@@ -84,7 +85,7 @@ const MAP_ELEMENTS: MapElement[] = [
     src: "/elements/dog.png",
     alt: "The farm dog",
     label: "OUR RESIDENTS",
-    targetSection: "#experience",
+    targetSection: "/gallery",
     rotation: 6,
     delay: 0.35,
     zIndex: 12,
@@ -134,6 +135,7 @@ export default function AyraScrollMap() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const isMobile = useIsMobile();
   const layout = isMobile ? LAYOUT.mobile : LAYOUT.desktop;
+  const router = useRouter();
 
   const setElementRef = useCallback(
     (id: string) => (el: HTMLDivElement | null) => {
@@ -149,12 +151,9 @@ export default function AyraScrollMap() {
     []
   );
 
-  const scrollToSection = useCallback((sectionId: string) => {
-    const target = document.querySelector(sectionId);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, []);
+  const handleMapClick = useCallback((targetPath: string) => {
+    router.push(targetPath);
+  }, [router]);
 
   /* Reduced-motion check */
   useEffect(() => {
@@ -411,7 +410,7 @@ export default function AyraScrollMap() {
                 }}
               >
                 <button
-                  onClick={() => scrollToSection(el.targetSection)}
+                  onClick={() => handleMapClick(el.targetSection)}
                   className={`scroll-element-btn group relative w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 rounded-lg transition-all duration-300 ${
                     isSettled ? "cursor-pointer" : "pointer-events-none"
                   }`}

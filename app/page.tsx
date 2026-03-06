@@ -1,31 +1,21 @@
 import Hero from "./components/Hero";
-import PagesFromFarm from "./components/PagesFromFarm";
-import TheDwelling from "./components/TheDwelling";
-import NupursKitchen from "./components/NupursKitchen";
-import CaughtOnFilm from "./components/CaughtOnFilm";
-import InquiryForm from "./components/InquiryForm";
+import AyraScrollMap from "./components/AyraScrollMap";
+import HomePreviews from "./components/HomePreviews";
+import ScrollReveal from "./components/ScrollReveal";
 import Footer from "./components/Footer";
 import MusicFab from "./components/MusicFab";
-import ScrollReveal from "./components/ScrollReveal";
-import AyraScrollMap from "./components/AyraScrollMap";
+import InquiryForm from "./components/InquiryForm";
+import { featureFlags } from "@/lib/flags";
+
 
 export default function Home() {
   return (
     <>
       <main>
-        <AyraScrollMap />
+        {featureFlags.ayraScrollMap && <AyraScrollMap />}
         <Hero />
         <ScrollReveal>
-          <PagesFromFarm />
-        </ScrollReveal>
-        <ScrollReveal>
-          <TheDwelling />
-        </ScrollReveal>
-        <ScrollReveal>
-          <NupursKitchen />
-        </ScrollReveal>
-        <ScrollReveal>
-          <CaughtOnFilm />
+          <HomePreviews />
         </ScrollReveal>
         <ScrollReveal>
           <InquiryForm />
