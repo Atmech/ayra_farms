@@ -66,12 +66,11 @@ export default function GalleryContent() {
               style={{ transform: `rotate(${img.rotation}deg)` }}
             >
               <div className="relative aspect-square w-full overflow-hidden bg-parchment-dark flex items-center justify-center">
-                <span className="font-serif italic text-ink/30 absolute z-20">Add photo here</span>
                 <Image
                   src={img.src}
                   alt={img.caption}
                   fill
-                  className="object-cover filter contrast-[1.05] opacity-50 transition-transform duration-700 group-hover:scale-[1.03] group-hover:opacity-100"
+                  className="object-cover filter contrast-[1.05] transition-transform duration-700 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
