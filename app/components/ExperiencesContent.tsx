@@ -6,6 +6,7 @@ export default function ExperiencesContent() {
       season: "Year-round",
       description: "Follow the trails into the dense woods. Learn to identify local edible plants, wild berries, and herbs.",
       rotation: "-rotate-2",
+      image: "/new_images/forst_forgaging.png",
     },
     {
       id: "farm-to-table",
@@ -21,6 +22,7 @@ export default function ExperiencesContent() {
       season: "Daily",
       description: "Spend time with Lucy the cow, feed the chickens, and experience the rhythm of farm life.",
       rotation: "rotate-2",
+      image: "/new_images/meeting_lucy.png",
     },
     {
       id: "kids-nature-art",
@@ -28,6 +30,7 @@ export default function ExperiencesContent() {
       season: "On Request",
       description: "Using leaves, flowers, and natural pigments to create beautiful pieces of art. A favorite for our little guests.",
       rotation: "-rotate-1",
+      image: "/new_images/kids_nature_art_sessions.png",
     },
     {
       id: "birdsong-trails",
@@ -35,6 +38,7 @@ export default function ExperiencesContent() {
       season: "Early Mornings",
       description: "Wake up to the symphony of the forest. Spot hornbills, kingfishers, and sunbirds.",
       rotation: "rotate-3",
+      image: "/new_images/bird_song_trails.png",
     },
     {
       id: "mango-picking",
@@ -42,6 +46,7 @@ export default function ExperiencesContent() {
       season: "Apr - Jun (Mangoes)",
       description: "The sweetest time of the year. Pluck ripe Alphonso mangoes right from the orchards.",
       rotation: "-rotate-2",
+      image: "/new_images/natures_art.png",
     },
   ];
 

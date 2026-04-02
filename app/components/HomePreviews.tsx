@@ -107,13 +107,17 @@ export default function HomePreviews() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mb-12">
             {[ 
-              { title: "Forest Foraging", date: "Year-round", rotation: "-rotate-2" },
-              { title: "Meeting Lucy", date: "Every morning", rotation: "rotate-1" },
-              { title: "Nature Art", date: "For the kids", rotation: "rotate-3" }
+              { title: "Forest Foraging", date: "Year-round", rotation: "-rotate-2", image: "/new_images/forst_forgaging.png" },
+              { title: "Meeting Lucy", date: "Every morning", rotation: "rotate-1", image: "/new_images/meeting_lucy.png" },
+              { title: "Nature Art", date: "For the kids", rotation: "rotate-3", image: "/new_images/kids_nature_art_sessions.png" }
             ].map((exp, i) => (
               <div key={i} className={`bg-white p-2 shadow-polaroid transform ${exp.rotation} hover:scale-105 transition-transform duration-300 rough-edge`}>
                 <div className="aspect-square bg-parchment-dark relative overflow-hidden flex items-center justify-center">
-                  <span className="font-serif italic text-ink/30 text-lg">Photo/Video</span>
+                  {exp.image ? (
+                    <Image src={exp.image} alt={exp.title} fill className="object-cover filter contrast-[1.05]" sizes="(max-width: 768px) 100vw, 33vw" />
+                  ) : (
+                    <span className="font-serif italic text-ink/30 text-lg">Photo/Video</span>
+                  )}
                 </div>
                 <div className="p-3 text-left">
                   <h4 className="font-serif text-xl text-ink">{exp.title}</h4>
