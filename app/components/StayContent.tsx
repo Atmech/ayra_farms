@@ -128,12 +128,14 @@ export default function StayContent() {
             Select dates below to see which spaces are open. Green indicates availability.
           </p>
           
-          <div className="w-full h-96 bg-parchment-dark/50 border border-ink/10 rounded flex items-center justify-center relative flex-col">
-            <span className="material-symbols-outlined text-5xl text-ink/20 block mb-4">calendar_month</span>
-            <span className="font-serif text-ink/50 italic text-xl">Google Calendar API Integration Placeholder</span>
-            <p className="font-sans text-xs text-ink/40 mt-2 max-w-xs uppercase tracking-widest">
-              (Will display interactive calendar here)
-            </p>
+          <div className="w-full h-[500px] relative filter sepia-[0.1] contrast-[0.9]">
+            <iframe 
+              src="https://calendar.google.com/calendar/embed?src=79841354370294e7651c1f181b69ad7e621672595bb587a3f8f480248ba11247%40group.calendar.google.com&ctz=Asia%2FKolkata&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0" 
+              style={{border: 0, width: "100%", height: "100%", position: "absolute", inset: 0}} 
+              frameBorder="0" 
+              scrolling="no"
+              className="opacity-80 mix-blend-multiply rounded"
+            ></iframe>
           </div>
         </div>
       </div>

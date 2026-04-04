@@ -1,3 +1,3 @@
 export const featureFlags = {
-    ayraScrollMap: false,
+    ayraScrollMap: true,
 } as const;
