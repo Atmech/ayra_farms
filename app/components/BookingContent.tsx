@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { format } from "date-fns";
+import { DateRange } from "react-day-picker";
+import { DateRangePicker } from "./DateRangePicker";
 
 export default function BookingContent() {
   const [formData, setFormData] = useState({
@@ -16,8 +19,18 @@ export default function BookingContent() {
     notes: "",
   });
 
+  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+
+  const handleDateChange = (range: DateRange | undefined) => {
+    setDateRange(range);
+    setFormData((prev) => ({
+      ...prev,
+      checkIn: range?.from ? format(range.from, "yyyy-MM-dd") : "",
+      checkOut: range?.to ? format(range.to, "yyyy-MM-dd") : "",
+    }));
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -46,6 +59,7 @@ export default function BookingContent() {
             phone: "",
             notes: "",
         });
+        setDateRange(undefined);
       } else {
         setStatus("error");
         setMessage(data.message || "Something went wrong. Please try again.");
@@ -60,7 +74,7 @@ export default function BookingContent() {
     <div className="pt-32 pb-24 bg-parchment min-h-screen relative overflow-hidden">
       <div className="absolute inset-0 bg-notebook-lines opacity-30 pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col-reverse lg:flex-row gap-12">
         {/* Left Side: Form */}
         <div className="w-full lg:w-[55%] bg-white p-8 md:p-12 shadow-sm border border-ink/10 relative">
           <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-red-300/50 z-0 hidden md:block" />
@@ -119,28 +133,15 @@ export default function BookingContent() {
                 {/* Step 2: Dates */}
                 <div>
                     <h3 className="font-sans text-xs uppercase tracking-widest text-terracotta mb-6 border-b border-ink/10 pb-2">2. Select Dates</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label className="block font-serif italic text-ink/70 mb-2">Check-In</label>
-                            <input 
-                                type="date" 
-                                required
-                                value={formData.checkIn}
-                                onChange={(e) => setFormData({ ...formData, checkIn: e.target.value })}
-                                className="w-full bg-transparent border-b border-ink/30 py-3 text-ink focus:border-terracotta focus:outline-none font-sans text-lg transition-colors cursor-pointer" 
-                            />
-                        </div>
-                        <div>
-                            <label className="block font-serif italic text-ink/70 mb-2">Check-Out</label>
-                            <input 
-                                type="date" 
-                                required
-                                value={formData.checkOut}
-                                min={formData.checkIn}
-                                onChange={(e) => setFormData({ ...formData, checkOut: e.target.value })}
-                                className="w-full bg-transparent border-b border-ink/30 py-3 text-ink focus:border-terracotta focus:outline-none font-sans text-lg transition-colors cursor-pointer" 
-                            />
-                        </div>
+                    <div className="w-full relative z-50">
+                        <label className="block font-serif italic text-ink/70 mb-2">Check-in — Check-out</label>
+                        <DateRangePicker 
+                            date={dateRange} 
+                            setDate={handleDateChange} 
+                        />
+                        {/* Hidden inputs to trigger required validation */}
+                        <input type="text" className="hidden" required value={formData.checkIn} onChange={() => {}} />
+                        <input type="text" className="hidden" required value={formData.checkOut} onChange={() => {}} />
                     </div>
                 </div>
 

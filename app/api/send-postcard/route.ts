@@ -1,3 +1,4 @@
+import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -14,11 +15,11 @@ export async function POST(request: Request) {
         }
 
         const RESEND_API_KEY = process.env.RESEND_API_KEY;
-        const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
+        const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "info@theayrafarm.com";
 
-        if (!RESEND_API_KEY || !CONTACT_EMAIL) {
+        if (!RESEND_API_KEY || RESEND_API_KEY === "re_xxxxxxxxxxxx") {
             // If no API key, log the submission and return success for demo purposes
-            console.log("📮 New Postcard Received:", {
+            console.log("📮 New Postcard Received (Demo Mode):", {
                 name,
                 email,
                 phone,
@@ -32,21 +33,18 @@ export async function POST(request: Request) {
             });
         }
 
+        const resend = new Resend(RESEND_API_KEY);
+
         // Send email via Resend
-        const res = await fetch("https://api.resend.com/emails", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${RESEND_API_KEY}`,
-            },
-            body: JSON.stringify({
-                from: "Ayra Farms <onboarding@resend.dev>",
-                to: [CONTACT_EMAIL],
-                subject: `📮 New Postcard from ${name}`,
-                html: `
+        const { data, error } = await resend.emails.send({
+            from: "Ayra Farms Website <info@theayrafarm.com>",
+            to: CONTACT_EMAIL,
+            replyTo: email,
+            subject: `🌟 New Lead: Postcard from ${name}`,
+            html: `
           <div style="font-family: Georgia, serif; max-width: 500px; margin: 0 auto; padding: 20px; background: #FDFBF7; border: 1px solid #E6E2D6;">
             <h1 style="font-style: italic; color: #2c3e50; border-bottom: 2px solid #C07A58; padding-bottom: 10px;">
-              A New Postcard from the Farm
+              New Lead: Postcard from the Farm
             </h1>
             <table style="width: 100%; font-size: 16px; color: #2c3e50;">
               <tr><td style="padding: 8px 0; font-weight: bold;">Name:</td><td>${name}</td></tr>
@@ -61,21 +59,19 @@ export async function POST(request: Request) {
             </p>
           </div>
         `,
-            }),
         });
 
-        if (res.ok) {
-            return NextResponse.json({
-                success: true,
-                message: "Your postcard has been sent!",
-            });
-        } else {
-            const errorData = await res.json();
+        if (error) {
             return NextResponse.json(
-                { success: false, message: errorData.message || "Failed to send email." },
+                { success: false, message: error.message || "Failed to send email." },
                 { status: 500 }
             );
         }
+
+        return NextResponse.json({
+            success: true,
+            message: "Your postcard has been sent!",
+        });
     } catch (error) {
         console.error("Postcard error:", error);
         return NextResponse.json(
