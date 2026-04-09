@@ -7,7 +7,7 @@ import { DateRangePicker } from "./DateRangePicker";
 
 export default function BookingContent() {
   const [formData, setFormData] = useState({
-    space: "main-house",
+    space: "round-window-room",
     checkIn: "",
     checkOut: "",
     adults: 1,
@@ -48,7 +48,7 @@ export default function BookingContent() {
         setStatus("success");
         setMessage("Your inquiry has been sent! We'll be in touch within 24 hours.");
         setFormData({
-            space: "main-house",
+            space: "round-window-room",
             checkIn: "",
             checkOut: "",
             adults: 1,
@@ -100,32 +100,48 @@ export default function BookingContent() {
                 {/* Step 1: Space */}
                 <div>
                     <h3 className="font-sans text-xs uppercase tracking-widest text-terracotta mb-6 border-b border-ink/10 pb-2">1. Select Space</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <label className="border border-ink/20 p-4 cursor-pointer hover:border-terracotta transition-colors relative group">
                         <input
                             type="radio"
                             name="space"
-                            value="main-house"
+                            value="round-window-room"
                             className="sr-only peer"
-                            checked={formData.space === "main-house"}
-                            onChange={(e) => setFormData({ ...formData, space: e.target.value })}
+                            checked={formData.space === "round-window-room"}
+                            onChange={(e) => setFormData({ ...formData, space: e.target.value, adults: 1 })}
                         />
                         <span className="absolute top-4 right-4 w-4 h-4 rounded-full border border-ink/40 peer-checked:bg-terracotta peer-checked:border-terracotta transition-colors" />
-                        <h4 className="font-serif text-2xl text-ink mb-1">Main House</h4>
-                        <p className="font-sans text-xs text-ink/60 uppercase tracking-widest">Up to 6 guests</p>
+                        <h4 className="font-serif text-xl text-ink mb-1">Round Window</h4>
+                        <p className="font-sans text-xs text-ink/60 uppercase tracking-widest">Up to 4 guests</p>
+                        <p className="font-sans text-xs text-terracotta mt-1">From ₹7,000/night</p>
                     </label>
                     <label className="border border-ink/20 p-4 cursor-pointer hover:border-terracotta transition-colors relative group">
                         <input
                             type="radio"
                             name="space"
-                            value="garden-cottage"
+                            value="terrace-room"
                             className="sr-only peer"
-                            checked={formData.space === "garden-cottage"}
-                            onChange={(e) => setFormData({ ...formData, space: e.target.value })}
+                            checked={formData.space === "terrace-room"}
+                            onChange={(e) => setFormData({ ...formData, space: e.target.value, adults: 1 })}
                         />
                         <span className="absolute top-4 right-4 w-4 h-4 rounded-full border border-ink/40 peer-checked:bg-terracotta peer-checked:border-terracotta transition-colors" />
-                        <h4 className="font-serif text-2xl text-ink mb-1">Garden Cottage</h4>
-                        <p className="font-sans text-xs text-ink/60 uppercase tracking-widest">Up to 2 guests</p>
+                        <h4 className="font-serif text-xl text-ink mb-1">Terrace Room</h4>
+                        <p className="font-sans text-xs text-ink/60 uppercase tracking-widest">Up to 4 guests</p>
+                        <p className="font-sans text-xs text-terracotta mt-1">From ₹6,500/night</p>
+                    </label>
+                    <label className="border border-ink/20 p-4 cursor-pointer hover:border-terracotta transition-colors relative group">
+                        <input
+                            type="radio"
+                            name="space"
+                            value="cottage-room"
+                            className="sr-only peer"
+                            checked={formData.space === "cottage-room"}
+                            onChange={(e) => setFormData({ ...formData, space: e.target.value, adults: 1 })}
+                        />
+                        <span className="absolute top-4 right-4 w-4 h-4 rounded-full border border-ink/40 peer-checked:bg-terracotta peer-checked:border-terracotta transition-colors" />
+                        <h4 className="font-serif text-xl text-ink mb-1">Cottage Room</h4>
+                        <p className="font-sans text-xs text-ink/60 uppercase tracking-widest">Up to 3 guests</p>
+                        <p className="font-sans text-xs text-terracotta mt-1">From ₹6,000/night</p>
                     </label>
                     </div>
                 </div>
@@ -162,7 +178,7 @@ export default function BookingContent() {
                                 <input 
                                     type="number" 
                                     min="1" 
-                                    max={formData.space === "main-house" ? 6 : 2}
+                                    max={formData.space === "cottage-room" ? 3 : 4}
                                     required
                                     value={formData.adults}
                                     onChange={(e) => setFormData({ ...formData, adults: parseInt(e.target.value) || 1 })}
@@ -170,7 +186,7 @@ export default function BookingContent() {
                                 />
                                 <button 
                                     type="button" 
-                                    onClick={() => setFormData(prev => ({ ...prev, adults: Math.min(formData.space === "main-house" ? 6 : 2, prev.adults + 1) }))}
+                                    onClick={() => setFormData(prev => ({ ...prev, adults: Math.min(formData.space === "cottage-room" ? 3 : 4, prev.adults + 1) }))}
                                     className="w-10 h-10 flex items-center justify-center text-ink/40 hover:text-terracotta transition-colors"
                                 >
                                     <span className="material-symbols-outlined text-xl">add</span>

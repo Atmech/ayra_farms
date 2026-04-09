@@ -3,23 +3,37 @@ import Link from "next/link";
 
 const ROOMS = [
   {
-    id: "main-house",
-    name: "The Main House",
-    description: "High ceilings, chira stones, stories in the walls.",
-    images: ["/new_images/room-laterite.png", "/new_images/Screenshot2026-03-05at11.27.12PM.png", "/new_images/Screenshot2026-03-05at11.26.37PM.png"], 
-    capacity: "Up to 6 guests",
-    amenities: ["3 Bedrooms", "Heritage Architecture", "Veranda Swing", "AC & Non-AC"],
-    badge: "Heritage",
-    tariff: "₹12,000 / night (Weekdays) | ₹15,000 / night (Weekends)",
+    id: "round-window-room",
+    name: "Round Window Room",
+    description: "Birdwatch through the iconic round window, stream flowing just beyond.",
+    images: ["/new_images/room-laterite.png"],
+    capacity: "Up to 4 adults",
+    amenities: ["King Bed", "Private Patio", "Round Window", "Handcrafted Furniture"],
+    tariff: "₹7,000 / night (Weekdays) | ₹7,500 / night (Weekends & Holidays)",
+    extraOccupancy: "₹2,000 / head / night (age 5+)",
+    includes: "Breakfast included",
   },
   {
-    id: "garden-cottage",
-    name: "Garden Cottage",
-    description: "Hidden amidst the areca nut palms.",
-    images: ["/new_images/room-cottage.png", "/new_images/Screenshot2026-03-05at11.27.31PM.png"],
-    capacity: "Up to 2 guests",
-    amenities: ["King Bed", "Private Sit-out", "Nature Views", "AC"],
-    tariff: "₹5,000 / night (Weekdays) | ₹6,500 / night (Weekends)",
+    id: "terrace-room",
+    name: "Terrace Room",
+    description: "Open skies, sweeping farm views, and the rhythm of the Betel Nut plantation.",
+    images: ["/new_images/room-cottage.png"],
+    capacity: "Up to 3–4 adults",
+    amenities: ["King Bed", "Private Terrace", "Bathtub", "Farm Views"],
+    tariff: "₹6,500 / night (Weekdays) | ₹6,800 / night (Weekends & Holidays)",
+    extraOccupancy: "₹2,000 / head / night (age 5+)",
+    includes: "Breakfast included",
+  },
+  {
+    id: "cottage-room",
+    name: "Cottage Room",
+    description: "Earthy interiors, lazy sit-outs, and the quiet of a village afternoon.",
+    images: ["/new_images/Screenshot2026-03-05at11.27.12PM.png"],
+    capacity: "Up to 3 adults",
+    amenities: ["King Bed", "Private Sit-out", "Nature Views", "Deck Chair"],
+    tariff: "₹6,000 / night (Weekdays) | ₹6,500 / night (Weekends & Holidays)",
+    extraOccupancy: "₹2,000 / head / night (age 5+)",
+    includes: "Breakfast included",
   },
 ];
 
@@ -56,20 +70,14 @@ export default function StayContent() {
                   <div className="absolute -inset-4 border-2 border-dashed border-ink/20 transform -rotate-1 z-0" />
                   <div className="relative z-10 bg-white p-3 shadow-xl transform rotate-1">
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-parchment-dark flex items-center justify-center">
-                      <span className="font-serif italic text-ink/30 absolute z-20">Add up to 10 photos here</span>
                       <Image
                         alt={room.name}
-                        className="object-cover filter contrast-[0.9] opacity-80"
+                        className="object-cover filter contrast-[0.9]"
                         src={room.images[0]}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
                       />
                     </div>
-                    {room.badge && (
-                      <div className="absolute -right-4 -top-4 w-20 h-20 bg-terracotta/90 rounded-full flex items-center justify-center text-white font-serif italic text-lg shadow-lg z-20 transform rotate-[15deg]">
-                        {room.badge}
-                      </div>
-                    )}
                   </div>
                 </div>
 
@@ -91,6 +99,8 @@ export default function StayContent() {
                         <div className="font-serif text-lg text-ink">
                           <p>Max Capacity: {room.capacity}</p>
                           <p className="mt-1">Tariff: {room.tariff}</p>
+                          <p className="mt-1 text-sm text-ink/60">Extra occupancy: {room.extraOccupancy}</p>
+                          <p className="mt-1 text-sm font-sans uppercase tracking-widest text-terracotta">{room.includes}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-4">
