@@ -2,21 +2,28 @@ import Image from "next/image";
 
 const ROOMS = [
   {
-    id: "main-house",
-    name: "The Main House",
-    description: "High ceilings, chira stones, stories in the walls.",
-    images: ["/new_images/room-laterite.png", "/new_images/Screenshot2026-03-05at11.27.12PM.png", "/new_images/Screenshot2026-03-05at11.26.37PM.png"], 
-    capacity: "Up to 6 guests",
-    amenities: ["3 Bedrooms", "Heritage Architecture", "Veranda Swing", "Scent of aged wood"],
-    badge: "Heritage",
+    id: "round-window-room",
+    name: "Round Window Room",
+    description: "Birdwatch through the iconic round window, stream flowing just beyond.",
+    images: ["/new_images/room-laterite.png"],
+    capacity: "Up to 4 adults",
+    amenities: ["King Bed", "Private Patio", "Round Window", "Handcrafted Furniture"],
   },
   {
-    id: "garden-cottage",
-    name: "Garden Cottage",
-    description: "Hidden amidst the areca nut palms.",
-    images: ["/new_images/room-cottage.png", "/new_images/Screenshot2026-03-05at11.27.31PM.png"], 
-    capacity: "Up to 2 guests",
-    amenities: ["King Bed", "Private Sit-out", "Nature Views", "Ensuite Bathroom"],
+    id: "terrace-room",
+    name: "Terrace Room",
+    description: "Open skies, sweeping farm views, and the rhythm of the Betel Nut plantation.",
+    images: ["/new_images/room-cottage.png"],
+    capacity: "Up to 3–4 adults",
+    amenities: ["King Bed", "Private Terrace", "Bathtub", "Farm Views"],
+  },
+  {
+    id: "cottage-room",
+    name: "Cottage Room",
+    description: "Earthy interiors, lazy sit-outs, and the quiet of a village afternoon.",
+    images: ["/new_images/Screenshot2026-03-05at11.27.12PM.png"],
+    capacity: "Up to 3 adults",
+    amenities: ["King Bed", "Private Sit-out", "Nature Views", "Deck Chair"],
   },
 ];
 
@@ -83,12 +90,6 @@ export default function TheDwelling() {
                           />
                         </div>
 
-                        {/* Badge if present */}
-                        {room.badge && (
-                          <div className="absolute -right-4 -top-4 w-20 h-20 bg-terracotta/90 rounded-full flex items-center justify-center text-white font-serif italic text-lg shadow-lg z-20 transform rotate-[15deg] hover:scale-105 transition-transform">
-                            {room.badge}
-                          </div>
-                        )}
                         
                         {/* Placeholder for "More photos" indicator if we have > 1 photo */}
                         {room.images.length > 1 && (

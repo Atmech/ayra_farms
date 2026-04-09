@@ -2,7 +2,7 @@ export default function TariffContent() {
   return (
     <div className="pt-32 pb-24 bg-paper-white min-h-screen relative overflow-hidden">
       <div className="absolute inset-0 bg-paper-texture opacity-80 pointer-events-none" />
-      
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <span className="font-hand text-3xl text-terracotta inline-block mb-4 -rotate-2">
@@ -18,7 +18,7 @@ export default function TariffContent() {
           <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-ink/20 transform translate-x-2 -translate-y-2" />
           <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-ink/20 transform -translate-x-2 translate-y-2" />
           <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-ink/20 transform translate-x-2 translate-y-2" />
-          
+
           {/* Stay Tariff Table */}
           <div className="mb-16">
             <h2 className="font-sans text-sm font-bold tracking-widest uppercase text-terracotta mb-8 border-b border-ink/10 pb-4 text-center">Stay Tariff</h2>
@@ -26,33 +26,41 @@ export default function TariffContent() {
               <table className="w-full text-left font-serif">
                 <thead>
                   <tr className="border-b border-ink/20 text-ink/60 italic text-lg">
-                    <th className="py-4 font-normal">Accommodation</th>
-                    <th className="py-4 font-normal">Weekdays <span className="font-sans text-[10px] uppercase block mt-1 not-italic">Mon - Thu</span></th>
-                    <th className="py-4 font-normal">Weekends <span className="font-sans text-[10px] uppercase block mt-1 not-italic">Fri - Sun</span></th>
+                    <th className="py-4 font-normal">Room</th>
+                    <th className="py-4 font-normal">Weekdays <span className="font-sans text-[10px] uppercase block mt-1 not-italic">Mon – Thu</span></th>
+                    <th className="py-4 font-normal">Weekends / Holidays <span className="font-sans text-[10px] uppercase block mt-1 not-italic">Fri – Sun · Diwali · Christmas · Summer</span></th>
                   </tr>
                 </thead>
                 <tbody className="text-xl text-ink">
                   <tr className="border-b border-ink/5 border-dashed">
                     <td className="py-6">
-                      Main House
-                      <span className="block font-sans text-xs text-ink/50 mt-1 uppercase tracking-widest">Up to 6 guests</span>
+                      Round Window Room
+                      <span className="block font-sans text-xs text-ink/50 mt-1 uppercase tracking-widest">Up to 4 adults</span>
                     </td>
-                    <td className="py-6">₹12,000</td>
-                    <td className="py-6">₹15,000</td>
+                    <td className="py-6">₹7,000</td>
+                    <td className="py-6">₹7,500</td>
+                  </tr>
+                  <tr className="border-b border-ink/5 border-dashed">
+                    <td className="py-6">
+                      Terrace Room
+                      <span className="block font-sans text-xs text-ink/50 mt-1 uppercase tracking-widest">Up to 3–4 adults</span>
+                    </td>
+                    <td className="py-6">₹6,500</td>
+                    <td className="py-6">₹6,800</td>
                   </tr>
                   <tr>
                     <td className="py-6">
-                      Garden Cottage
-                      <span className="block font-sans text-xs text-ink/50 mt-1 uppercase tracking-widest">Up to 2 guests</span>
+                      Cottage Room
+                      <span className="block font-sans text-xs text-ink/50 mt-1 uppercase tracking-widest">Up to 3 adults</span>
                     </td>
-                    <td className="py-6">₹5,000</td>
+                    <td className="py-6">₹6,000</td>
                     <td className="py-6">₹6,500</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="font-hand text-sm text-ink/50 text-center mt-6">
-              *Taxes as applicable. Minimum 2-night stay recommended.
+              *All rates include breakfast. Extra occupancy (age 5+): ₹2,000/head/night. Taxes as applicable.*
             </p>
           </div>
 
@@ -64,29 +72,41 @@ export default function TariffContent() {
                 <thead>
                   <tr className="border-b border-ink/20 text-ink/60 italic text-lg">
                     <th className="py-4 font-normal">Meal</th>
-                    <th className="py-4 font-normal">Adult</th>
-                    <th className="py-4 font-normal">Child <span className="font-sans text-[10px] uppercase ml-1 not-italic text-ink/40">(5-12 yrs)</span></th>
+                    <th className="py-4 font-normal">Veg</th>
+                    <th className="py-4 font-normal">Non-Veg</th>
                   </tr>
                 </thead>
                 <tbody className="text-xl text-ink">
                   <tr className="border-b border-ink/5 border-dashed">
-                    <td className="py-4">Morning Harvest (Breakfast)</td>
-                    <td className="py-4">₹350</td>
-                    <td className="py-4">₹200</td>
+                    <td className="py-4">
+                      Breakfast
+                      <span className="block font-sans text-xs text-ink/50 mt-1">Poha/Upma/Thalipeeth, fruit, tea</span>
+                    </td>
+                    <td className="py-4 text-terracotta font-serif italic text-lg">Included</td>
+                    <td className="py-4 text-terracotta font-serif italic text-lg">Included</td>
                   </tr>
                   <tr className="border-b border-ink/5 border-dashed">
-                    <td className="py-4">The Farm Thali (Lunch)</td>
-                    <td className="py-4">₹650</td>
-                    <td className="py-4">₹350</td>
+                    <td className="py-4">
+                      Lunch / Dinner Thali
+                      <span className="block font-sans text-xs text-ink/50 mt-1">Bhakri, bhaji, dal, solkadhi & more</span>
+                    </td>
+                    <td className="py-4">₹500</td>
+                    <td className="py-4">₹600+</td>
                   </tr>
                   <tr>
-                    <td className="py-4">Wood Fire Evenings (Dinner)</td>
-                    <td className="py-4">₹650</td>
-                    <td className="py-4">₹350</td>
+                    <td className="py-4">
+                      Evening Snacks
+                      <span className="block font-sans text-xs text-ink/50 mt-1">Kanda bhaji, chutney, chai</span>
+                    </td>
+                    <td className="py-4 text-terracotta font-serif italic text-lg">Complimentary</td>
+                    <td className="py-4 text-terracotta font-serif italic text-lg">Complimentary</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p className="font-hand text-sm text-ink/50 text-center mt-6">
+              *Meals must be pre-booked in advance. Extra portions chargeable.*
+            </p>
           </div>
 
           {/* Add-on Experiences */}
@@ -124,12 +144,16 @@ export default function TariffContent() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-terracotta mt-1">•</span>
-                    <span><strong>Child Policy:</strong> Kids under 5 stay free. Ages 5-12 are charged at child rates for meals.</span>
+                    <span><strong>Child Policy:</strong> Kids under 5 stay free. Ages 5 and above are charged at ₹2,000/night extra occupancy rate.</span>
                   </li>
                 </ul>
               </div>
               <div>
                 <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-terracotta mt-1">•</span>
+                    <span><strong>Extra Occupancy:</strong> ₹2,000/head/night for guests above age 5 beyond the base rate.</span>
+                  </li>
                   <li className="flex items-start gap-3">
                     <span className="text-terracotta mt-1">•</span>
                     <span><strong>Pet Policy:</strong> We are pet friendly! Well-behaved pets are welcome with prior notice. ₹500/pet cleaning fee.</span>
@@ -142,7 +166,7 @@ export default function TariffContent() {
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
