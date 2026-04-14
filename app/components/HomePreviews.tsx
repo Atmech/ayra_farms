@@ -65,7 +65,7 @@ export default function HomePreviews() {
                 <span className="font-serif italic text-ink/30 z-20 absolute">Food Photo</span>
                 <Image
                   src="/new_images/Screenshot2026-03-05at11.28.17PM.png"
-                  alt="Nupur's Kitchen"
+                  alt="Sadhana's Kitchen"
                   fill
                   className="object-cover filter contrast-[1.05] opacity-80"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -78,7 +78,7 @@ export default function HomePreviews() {
           </div>
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
             <span className="font-sans text-xs uppercase tracking-widest text-ink/50 mb-2 block">
-              Nupur&apos;s Kitchen
+              Sadhana&apos;s Kitchen
             </span>
             <h3 className="font-serif text-4xl text-ink mb-4">Slow Food</h3>
             <p className="font-serif text-lg text-ink/70 mb-8 italic max-w-md">

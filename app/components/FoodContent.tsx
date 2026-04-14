@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 type Meal = {
@@ -76,9 +78,9 @@ export default function FoodContent() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 md:pl-32">
         <div className="mb-20">
           <span className="font-hand text-3xl text-terracotta inline-block mb-2 -rotate-2 bg-white px-2 py-1">
-            Meals made using produce from our own farm
+            homemade freshly cooked meals from the kitchen
           </span>
-          <h1 className="font-serif text-6xl md:text-7xl text-ink bg-white inline-block px-2">Nupur&apos;s Kitchen</h1>
+          <h1 className="font-serif text-6xl md:text-7xl text-ink bg-white inline-block px-2">Sadhana&apos;s Kitchen</h1>
           <p className="font-serif text-xl italic leading-loose text-ink/80 max-w-2xl mt-8 bg-white/80 p-6 md:-ml-4 border-l-4 border-terracotta backdrop-blur-sm shadow-sm relative z-10">
             &quot;Today we harvested fresh turmeric. The aroma filled the
             entire courtyard. Tonight, we cook the fish curry slow, over the
@@ -87,6 +89,20 @@ export default function FoodContent() {
           <p className="mt-4 font-sans text-xs uppercase tracking-widest text-ink/50 bg-white inline-block px-2">
             Meals are served at fixed times and must be pre-booked in advance.
           </p>
+          <div className="mt-6">
+            <a
+              href="/menu.pdf"
+              download
+              className="inline-flex items-center gap-2 bg-ink text-white font-sans text-xs uppercase tracking-widest px-6 py-3 hover:bg-terracotta transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Menu Card
+            </a>
+          </div>
         </div>
 
         <div className="space-y-24 max-w-4xl">

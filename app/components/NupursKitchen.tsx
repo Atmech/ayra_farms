@@ -12,7 +12,7 @@ export default function NupursKitchen() {
         {/* Header */}
         <div className="mb-12">
           <h2 className="font-serif text-5xl text-ink">
-            From Nupur&apos;s Kitchen
+            From Sadhana&apos;s Kitchen
           </h2>
           <p className="font-hand text-2xl text-gray-500 mt-2">
             Recipes &amp; Harvests
@@ -38,7 +38,7 @@ export default function NupursKitchen() {
             <div className="mt-8 relative group cursor-pointer">
               <div className="overflow-hidden rounded-tl-[50px] rounded-br-[50px] border-4 border-white shadow-lg transform transition-transform group-hover:scale-105">
                 <Image
-                  alt="Nupur cooking over a traditional wood fire"
+                  alt="Sadhana cooking over a traditional wood fire"
                   className="w-full h-64 object-cover"
                   src="/new_images/Screenshot2026-03-05at11.28.17PM.png"
                   width={600}
